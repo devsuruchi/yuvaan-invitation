@@ -3,58 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuvaan's Annaprashan Invitation</title>
+    <title>Yuvaan's Royal Annaprashan Ceremony</title>
     
-    <!-- Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Mukta:wght@400;800&family=Poppins:wght@300;600;900&display=swap" rel="stylesheet">
     
     <style>
-        :root { --maroon: #700101; --gold: #D4AF37; --cream: #FFFDF5; }
-        body { background-color: #0f172a; font-family: 'Poppins', sans-serif; overflow: hidden; }
-        .nepali { font-family: 'Mukta', sans-serif; }
-        
-        /* Petal Animation */
-        .petal { position: absolute; background-color: #ffcc00; border-radius: 50% 0 50% 0; z-index: 1; animation: fall linear infinite; pointer-events: none; }
-        @keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
-        
-        /* 84 Bowls Style */
-        .mini-bowl { position: absolute; width: 12px; height: 9px; background: linear-gradient(145deg, #cd7f32, #8b4513); border: 1px solid #FFD700; border-radius: 0 0 12px 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); }
-        .orbit-rotate { animation: rotateOrbit 60s linear infinite; }
-        @keyframes rotateOrbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        
-        /* Card Entrance */
-        .invite-card { animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        @keyframes slideUp { 0% { opacity: 0; transform: translateY(40px) scale(0.98); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+        :root {
+            --royal-maroon: #5a0001;
+            --gold-leaf: #d4af37;
+            --dhaka-red: #cc232a;
+        }
+
+        body {
+            background: radial-gradient(circle, #2c0101 0%, #000000 100%);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Dhaka Pattern Overlay */
+        .dhaka-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+            background-image: url('https://www.transparenttextures.com/patterns/az-subtle.png');
+            pointer-events: none;
+        }
+
+        /* The Animated Gold Shine for Annaprashan */
+        .gold-shine {
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s infinite linear;
+            background-size: 200% auto;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        /* 84 Taparis (Bowls) */
+        .tapari {
+            position: absolute;
+            width: 14px;
+            height: 10px;
+            border-radius: 50% 50% 20% 20%;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Baby Graphic Animation */
+        .baby-emoji {
+            font-size: 3rem;
+            animation: reach 2s ease-in-out infinite;
+        }
+
+        @keyframes reach {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.2) rotate(10deg); }
+        }
+
+        /* Scroll Reveal Effect */
+        .scroll-container {
+            perspective: 1000px;
+            display: none; /* Shown after click */
+        }
+
+        .envelope {
+            cursor: pointer;
+            transition: transform 0.8s;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
+<body>
 
-    <!-- Background Elements -->
-    <div id="petal-container" class="fixed inset-0"></div>
+    <div class="dhaka-bg"></div>
 
-    <!-- MAIN CARD -->
-    <div class="invite-card relative z-10 bg-[#FFFDF5] w-full max-w-md rounded-[3rem] border-[10px] border-double border-[#D4AF37] p-8 text-center shadow-2xl">
-        
-        <header class="mb-4">
-            <span class="text-[#700101] text-[10px] font-black uppercase tracking-[0.4em] opacity-80">Annaprashan Ceremony</span>
-            <h2 class="text-[#D4AF37] text-4xl font-black tracking-tight mt-2">YUVAAN</h2>
-        </header>
-
-        <!-- PHOTO & 84 BYANJAN ORBIT -->
-        <div class="relative w-56 h-56 mx-auto mb-10">
-            <!-- JS generates 84 bowls here -->
-            <div id="orbit-container" class="absolute inset-0 orbit-rotate"></div>
-            
-            <div class="relative z-10 w-full h-full rounded-full border-4 border-[#D4AF37] overflow-hidden bg-white shadow-xl">
-                <img src="yuvaan_pp.jpg" alt="Yuvaan" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/400?text=Yuvaan';">
-            </div>
-            
-            <!-- Icon of 5-month kid theme -->
-            <div class="absolute -bottom-2 -right-2 z-20 bg-white p-3 rounded-full shadow-lg border-2 border-[#D4AF37]">
-                <span class="text-2xl">👶🥣</span>
-            </div>
+    <!-- 1. THE ENVELOPE (Initial State) -->
+    <div id="opener" class="envelope flex flex-col items-center z-50">
+        <div class="w-40 h-40 bg-[#d4af37] rounded-full flex items-center justify-center border-8 border-[#5a0001] shadow-[0_0_50px_rgba(212,175,55,0.4)]">
+            <span class="text-5xl">🧧</span>
         </div>
+        <p class="text-[#d4af37] mt-6 font-black tracking-widest uppercase animate-pulse">Tap to open Yuvaan's Invitation</p>
+    </div>
 
-        <!-- NEPAL
+    <!-- 2. THE MAIN INVITATION (Hidden initially) -->
+    <div id="main-content" class="scroll-container relative z-40 w-full max-w-lg p-4">
+        <div class="bg-[#fff9e6] rounded-3xl border-[12px] border-double border-[#d4af37] p-6 text-center shadow-2xl relative overflow-hidden">
+            
+            <!-- Dhaka Header -->
+            <div class="absolute top-0 left-0 w-full h-4 bg-[#cc232a]"></div>
+
+            <p class="text-[#5a0001] font-bold text-xs tracking-[0.3em] mt-4 uppercase">Royal Weaning Ceremony</p>
+            <h2 class="text-4xl font-black text-[#5a0001] mt-2 tracking-tighter">YUVAAN</h2>
+
+            <!-- CENTRAL GRAPHIC: 84 BYANJAN FEAST -->
+            <div class="relative w-64 h-64 mx-auto my-8 flex items-center justify-center">
+                
+                <!-- Orbiting 84 Bowls -->
+                <div id="feast-orbit" class="absolute inset-0 animate-[spin_60s_linear_infinite]"></div>
+                
+                <!-- Yuvaan's Picture Frame -->
+                <div class="w-40 h-40 rounded-full border-4 border-[#d4af37] overflow-hidden bg-white z-10 shadow-2xl">
+                    <img src="yuvaan_pp.jpg" alt="Yuvaan" class="w-full h-full object-cover" onerror="this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=Yuvaan';">
+                </div>
+
+                <!-- Animated Baby reaching for food -->
+                <div class="absolute -bottom-2 -right-2 z-20 baby-emoji">👶</div>
+                <div class="absolute -bottom-4 -left-2 z-20 text-3xl">🥣</div>
+            </div>
+
+            <!-- THE DEVANAGARI TITLE -->
+            <div class="mb-4">
+                <h1 class="nepali text-7xl font-extrabold gold-shine font-['Mukta'] leading-tight">अन्नप्राशन</h1>
+                <p class="font-['Kalam'] text-[#cc232a] text-lg font-bold">The Great Chaurasi Byanjan Feast</p>
+            </div>
+
+            <!-- EVENT DETAILS -->
+            <div class="bg-[#5a0001] text-white p-4 rounded-2xl my-6 border-b-4 border-[#d4af37] shadow-lg">
+                <div class="text-2xl font-black">7 Baisakh 2083</div>
+                <div class="text-sm opacity-80 uppercase tracking-widest font-semibold">Monday, 20 April 2026</div>
+                <div class="h-px bg-white/20 my-2 w-1/2 mx-auto"></div>
+                <div class="text-lg font-bold text-[#d4af37]">📍 Jorpati, Kathmandu</div>
+            </div>
+
+            <!-- CREATIVE TEXT -->
+            <p class="text-slate-700 text-xs px-4 italic leading-relaxed">
+                "Small hands, big appetite! Our little prince Yuvaan is turning 5 months and embarking on a journey of 84 flavors. Your blessings are the most important ingredient in his first meal."
+            </p>
+
+            <button onclick="location.href='https://wa.me/9779863201528?text=Blessings+to+Yuvaan!'" class="mt-8 w-full bg-[#cc232a] text-white py-4 rounded-xl font-black uppercase tracking-[0.2em] shadow-xl hover:bg-[#5a0001] transition-all">
+                Send Your Blessings
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // 1. Reveal Animation
+        document.getElementById('opener').addEventListener('click', function() {
+            this.style.display = 'none';
+            const main = document.getElementById('main-content');
+            main.style.display = 'block';
+            main.classList.add('animate-[bounceIn_1s_ease-out]');
+        });
+
+        // 2. Generate 84 Diverse Taparis (Leaf Bowls)
+        const orbit = document.getElementById('feast-orbit');
+        const colors = [
+            '#fde047', // Dal
+            '#ffffff', // Bhat
+            '#ef4444', // Achar
+            '#22c55e', // Sag
+            '#f97316', // Tarkari
+            '#8b4513', // Selroti
+            '#ffffff'  // Dahi
+        ];
+
+        for (let i = 0; i < 84; i++) {
+            const tapari = document.createElement('div');
+            tapari.className = 'tapari';
+            
+            // Circular positioning
+            const angle = (i / 84) * 360;
+            const radius = 115; // Inner ring
+            const x = 128 + radius * Math.cos(angle * Math.PI / 180) - 7;
+            const y = 128 + radius * Math.sin(angle * Math.PI / 180) - 5;
+            
+            tapari.style.left = `${x}px`;
+            tapari.style.top = `${y}px`;
+            
+            // Randomly pick a color from the food palette
+            tapari.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            // Make some larger (special dishes)
+            if (i % 10 === 0) {
+                tapari.style.width = '20px';
+                tapari.style.height = '14px';
+                tapari.style.zIndex = '5';
+                tapari.style.border = '2px solid gold';
+            }
+
+            orbit.appendChild(tapari);
+        }
+
+        // Add secondary ring for even more density (making it look like 84)
+        for (let i = 0; i < 42; i++) {
+            const tapari = document.createElement('div');
+            tapari.className = 'tapari';
+            const angle = (i / 42) * 360;
+            const radius = 135; // Outer ring
+            const x = 128 + radius * Math.cos(angle * Math.PI / 180) - 7;
+            const y = 128 + radius * Math.sin(angle * Math.PI / 180) - 5;
+            tapari.style.left = `${x}px`;
+            tapari.style.top = `${y}px`;
+            tapari.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            orbit.appendChild(tapari);
+        }
+    </script>
+
+</body>
+</html>

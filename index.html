@@ -3,226 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuvaan's Subha Annaprashan</title>
+    <title>Yuvaan's Annaprashan Invitation</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700;800&family=Kalam:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --maroon: #7b0000;
-            --gold: #d4af37;
-            --cream: #fff9e6;
+            --navy: #1e293b;
+            --maroon: #800000;
+            --gold: #b28d42;
         }
 
         body {
-            background: #2c0101; /* Deep background to make the card pop */
-            font-family: 'Mukta', sans-serif;
+            background-color: #111;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            overflow: hidden;
+            font-family: 'Mukta', sans-serif;
         }
 
-        /* The Invitation Card (9:16 Ratio) */
+        /* The Card Container - 9:16 aspect ratio */
         .card {
-            background: var(--cream);
-            width: 380px;
-            height: 640px;
-            border: 12px double var(--gold);
+            width: 400px;
+            height: 700px;
+            background: #fdfaf1; /* Parchment Color */
             position: relative;
-            box-shadow: 0 0 50px rgba(0,0,0,0.8);
-            border-radius: 10px;
             overflow: hidden;
-            animation: card-entry 1.5s ease-out;
+            border: 4px solid var(--gold);
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
         }
 
-        @keyframes card-entry {
-            0% { transform: scale(0.8) rotate(-5deg); opacity: 0; }
-            100% { transform: scale(1) rotate(0deg); opacity: 1; }
-        }
-
-        /* Traditional Header Border */
-        .header-decor {
-            height: 40px;
-            background: var(--maroon);
+        /* The Traditional Arch Frame (Matching your photo) */
+        .arch-header {
             width: 100%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            color: var(--gold);
+            height: 120px;
+            background-color: var(--navy);
+            background-image: url('https://www.transparenttextures.com/patterns/floral-paper.png');
+            clip-path: ellipse(80% 100% at 50% 0%);
+            position: absolute;
+            top: 0;
+            z-index: 10;
+            border-bottom: 4px solid var(--gold);
         }
 
-        .gold-text {
-            color: var(--gold);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-            animation: shimmer 3s infinite;
+        /* Parchment Texture Overlay */
+        .parchment {
+            position: absolute;
+            inset: 0;
+            opacity: 0.2;
+            background-image: url('https://www.transparenttextures.com/patterns/old-map.png');
+            pointer-events: none;
         }
 
-        @keyframes shimmer {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; transform: scale(1.05); }
+        /* Pink Lotus Elements (Matching your photo) */
+        .lotus {
+            position: absolute;
+            width: 100px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+            z-index: 5;
+            bottom: 120px;
+            animation: sway 4s ease-in-out infinite;
+        }
+        .lotus-left { left: -20px; transform: rotate(-15deg); }
+        .lotus-right { right: -20px; transform: rotate(15deg); scaleX(-1); }
+
+        @keyframes sway {
+            0%, 100% { transform: translateY(0) rotate(-15deg); }
+            50% { transform: translateY(-10px) rotate(-10deg); }
         }
 
-        /* 84 Byanjan Graphic Representation */
-        .feast-area {
+        /* Photo Frame & 84 Bowls Orbit */
+        .photo-area {
             position: relative;
+            width: 220px;
             height: 220px;
-            margin-top: 20px;
+            margin: 180px auto 20px;
+            z-index: 20;
         }
 
+        .main-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 6px solid #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 25;
+        }
+
+        /* 84 Taparis (Leaf Bowls) */
         .tapari {
             position: absolute;
             width: 14px;
             height: 10px;
-            background: #2d5a27; /* Leaf Green */
-            border-radius: 50% 50% 10% 10%;
-            box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-            animation: pulse-food 2s infinite;
+            background: #3e5c36; /* Tapari Green */
+            border-radius: 0 0 10px 10px;
+            border: 1px solid #FFD700;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
 
-        @keyframes pulse-food {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
+        .orbit-container {
+            position: absolute;
+            inset: 0;
+            animation: rotate 60s linear infinite;
         }
 
-        /* Baby Graphic Animation */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Baby Graphic (Creative representation) */
         .baby-character {
             position: absolute;
-            bottom: 20px;
+            bottom: -30px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 4rem;
-            z-index: 10;
-            animation: baby-eat 2s infinite;
+            font-size: 3rem;
+            animation: bounce 2s infinite;
+            z-index: 30;
         }
 
-        @keyframes baby-eat {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-10px) rotate(5deg); }
+        @keyframes bounce {
+            0%, 100% { bottom: -30px; }
+            50% { bottom: -20px; }
         }
 
-        /* Sayapatri Flowers (Falling GIF effect) */
-        .flower {
+        /* Text Styles */
+        .ceremony-title {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 4px;
+            color: var(--navy);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .nepali-subha {
+            font-family: 'Mukta', sans-serif;
+            color: var(--maroon);
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-top: 10px;
+        }
+
+        .yuvaan-name {
+            color: var(--maroon);
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin: -5px 0 10px;
+        }
+
+        .details-box {
+            margin-top: 60px;
+            color: var(--navy);
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* Floating Flowers (GIF Effect) */
+        .petal {
             position: absolute;
-            color: orange;
-            font-size: 20px;
-            z-index: 5;
+            background: #fbbf24;
+            width: 10px; height: 10px;
+            border-radius: 50% 0 50% 0;
             animation: fall linear infinite;
+            z-index: 100;
         }
 
         @keyframes fall {
-            0% { top: -50px; transform: rotate(0); }
-            100% { top: 700px; transform: rotate(360deg); }
+            0% { top: -20px; transform: rotate(0); opacity: 1; }
+            100% { top: 720px; transform: rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Animation Layer for Flowers -->
-    <div id="flower-container"></div>
+    <div id="petals"></div>
 
-    <!-- MAIN CARD -->
-    <div class="card flex flex-col items-center">
-        
-        <!-- Top Banner -->
-        <div class="header-decor">
-            <span>⚜</span><span>⚜</span><span>⚜</span><span>⚜</span><span>⚜</span>
+    <div class="card">
+        <div class="parchment"></div>
+        <div class="arch-header"></div>
+
+        <!-- Lotuses (Matching Pragya's Invite) -->
+        <img src="https://cdn-icons-png.flaticon.com/512/1043/1043425.png" class="lotus lotus-left" alt="lotus">
+        <img src="https://cdn-icons-png.flaticon.com/512/1043/1043425.png" class="lotus lotus-right" alt="lotus">
+
+        <!-- Top Header Text -->
+        <div class="text-center pt-14 relative z-20">
+            <p class="ceremony-title">Annaprashan <span class="text-xs italic block">Ceremony</span></p>
+            <h2 class="nepali-subha">शुभ अन्नप्राशन</h2>
+            <h1 class="yuvaan-name">YUVAAN</h1>
+            <p class="text-xs text-slate-500 italic">We cordially invite you to join us in celebrating <br> Annaprashan of our baby</p>
         </div>
 
-        <!-- Subha Annaprashan Header -->
-        <h1 class="text-4xl font-extrabold mt-6 text-[#7b0000] gold-text">
-            शुभ अन्नप्राशन
-        </h1>
-        <p class="font-['Kalam'] text-[#d4af37] text-lg -mt-1 font-bold">Yuvaan's First Feast</p>
-
-        <!-- YUVAAN'S PICTURE IN LOCKET FRAME -->
-        <div class="relative mt-6">
-            <div class="w-40 h-40 rounded-full border-8 border-[#d4af37] p-1 shadow-xl overflow-hidden bg-white">
-                <img src="yuvaan_pp.jpg" alt="Yuvaan" class="w-full h-full object-cover" onerror="this.src='https://api.dicebear.com/7.x/pixel-art/svg?seed=Yuvaan';">
-            </div>
-            <!-- Traditional Tikka/Decor on frame -->
-            <div class="absolute -top-2 left-1/2 -translate-x-1/2 bg-red-600 w-4 h-4 rounded-full border-2 border-white"></div>
-        </div>
-
-        <!-- 84 BYANJAN & BABY GRAPHIC AREA -->
-        <div class="feast-area w-full">
-            <!-- JavaScript will inject 84 taparis here -->
-            <div id="tapari-orbit" class="relative w-full h-full"></div>
+        <!-- The Photo & 84 Bowls (The Creative Feast) -->
+        <div class="photo-area">
+            <div id="bowl-orbit" class="orbit-container"></div>
+            <img src="yuvaan_pp.jpg" alt="Yuvaan" class="main-photo" onerror="this.src='https://api.dicebear.com/7.x/pixel-art/svg?seed=Yuvaan';">
             
-            <!-- Baby Character Graphic -->
-            <div class="baby-character">👶</div>
-            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 text-4xl">🥘</div>
+            <!-- Graphical representation of kid trying to eat -->
+            <div class="baby-character">👶🥣</div>
         </div>
 
-        <!-- DETAILS SECTION -->
-        <div class="mt-4 text-center px-6">
-            <div class="bg-[#7b0000] text-[#d4af37] py-3 px-8 rounded-lg shadow-inner">
-                <p class="text-xs uppercase tracking-widest font-bold text-white mb-1">Join us at Jorpati</p>
-                <h2 class="text-xl font-black">7 Baisakh 2083</h2>
-                <p class="text-sm font-bold opacity-90">20th April 2026</p>
+        <!-- Footer Details (Matching Pragya's Layout) -->
+        <div class="details-box px-8">
+            <div class="text-lg font-black border-t border-b border-gold py-2">
+                7th Baisakh, 2083
             </div>
-            
-            <p class="mt-6 text-[#7b0000] text-xs italic px-4 font-bold">
-                "Small hands, big appetite! Join us as our 5-month-old prince Yuvaan tastes the 84 varieties of tradition."
-            </p>
+            <div class="text-sm mt-2 uppercase tracking-widest text-slate-600">
+                11 AM | followed by lunch
+            </div>
+            <div class="mt-4 text-xs text-slate-500 tracking-wider">
+                📍 Jorpati, Kathmandu <br>
+                <span class="text-[10px] mt-1 block">CELEBRATING CHAURASI BYANJAN</span>
+            </div>
         </div>
 
-        <!-- RSVP -->
-        <div class="absolute bottom-6 w-full text-center">
-            <div class="h-px bg-[#d4af37] w-2/3 mx-auto mb-2"></div>
-            <p class="text-[10px] text-[#7b0000] font-bold uppercase tracking-tighter">Blessings from: The [Your Last Name] Family</p>
+        <!-- RSVP Button -->
+        <div class="absolute bottom-6 w-full text-center z-50">
+            <button onclick="window.open('https://wa.me/?text=Blessings+to+Yuvaan!')" class="bg-[#800000] text-white px-8 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] shadow-lg">
+                Send Blessings
+            </button>
         </div>
-
     </div>
 
     <script>
-        // 1. Generate 84 Taparis (Leaf Bowls) in a semi-circle around the baby
-        const container = document.getElementById('tapari-orbit');
-        const foods = ['#fde047', '#f97316', '#ffffff', '#ef4444', '#22c55e'];
+        // Generate 84 Taparis (Small Bowls) for Chaurasi Byanjan
+        const orbit = document.getElementById('bowl-orbit');
+        const foods = ['#fde047', '#ef4444', '#ffffff', '#22c55e', '#f97316'];
         
         for (let i = 0; i < 84; i++) {
             const tapari = document.createElement('div');
             tapari.className = 'tapari';
-            
-            // Positioning 84 bowls in a dynamic layout
             const angle = (i / 84) * 360;
-            const radiusX = 140; 
-            const radiusY = 80;
-            const x = 190 + radiusX * Math.cos(angle * Math.PI / 180) - 7;
-            const y = 100 + radiusY * Math.sin(angle * Math.PI / 180) - 5;
-            
+            const radius = 105;
+            const x = 110 + radius * Math.cos(angle * Math.PI / 180) - 7;
+            const y = 110 + radius * Math.sin(angle * Math.PI / 180) - 5;
             tapari.style.left = `${x}px`;
             tapari.style.top = `${y}px`;
             
-            // Random food color inside tapari
+            // Random food color inside
             const food = document.createElement('div');
-            food.style.width = '70%';
-            food.style.height = '70%';
-            food.style.margin = '15% auto';
-            food.style.borderRadius = '50%';
+            food.style.width = '60%'; food.style.height = '60%';
+            food.style.margin = '20% auto'; food.style.borderRadius = '50%';
             food.style.backgroundColor = foods[i % foods.length];
             tapari.appendChild(food);
-
-            // Staggered animation delay
-            tapari.style.animationDelay = (i * 0.05) + 's';
             
-            container.appendChild(tapari);
+            orbit.appendChild(tapari);
         }
 
-        // 2. Falling Sayapatri Flower Petals (GIF effect)
-        const flowerContainer = document.getElementById('flower-container');
-        function createFlower() {
-            const f = document.createElement('div');
-            f.className = 'flower';
-            f.innerHTML = '✿';
-            f.style.left = Math.random() * 100 + 'vw';
-            f.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            f.style.opacity = Math.random();
-            flowerContainer.appendChild(f);
-            setTimeout(() => f.remove(), 5000);
+        // Falling Petals Animation
+        const petalContainer = document.getElementById('petals');
+        function createPetal() {
+            const p = document.createElement('div');
+            p.className = 'petal';
+            p.style.left = Math.random() * window.innerWidth + 'px';
+            p.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            p.style.background = ['#fbbf24', '#f59e0b', '#fb7185'][Math.floor(Math.random()*3)];
+            petalContainer.appendChild(p);
+            setTimeout(() => p.remove(), 5000);
         }
-        setInterval(createFlower, 400);
+        setInterval(createPetal, 300);
     </script>
 </body>
 </html>

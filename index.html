@@ -3,256 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuvaan's Floral Annaprashan Invitation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&family=Cinzel:wght@600&family=Marcellus&display=swap" rel="stylesheet">
+    <title>Yuvaan's Annaprashan Invite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@600&family=Playfair+Display:wght@700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --text-red: #b32d2e;
-            --name-green: #2d5a27;
+            --dark-red: #a32a2a;
+            --leaf-green: #2e5a31;
             --gold: #d4af37;
-            --cream-bg: #fffcf5;
+            --sky-blue: #e0f4f7;
         }
 
         body {
-            background-color: #2c3e50;
+            background-color: #333;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            font-family: 'Marcellus', serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        /* Main Invitation Canvas */
         .card {
             width: 500px;
-            height: 750px;
-            background-color: var(--cream-bg);
-            /* Flowery Background Pattern */
+            height: 780px;
+            background: var(--sky-blue);
+            /* Watercolor & Flowery Background mix */
             background-image: 
-                url('https://www.transparenttextures.com/patterns/natural-paper.png'),
-                url('https://img.freepik.com/free-vector/hand-painted-watercolor-floral-background_23-2148438595.jpg?size=626&ext=jpg'); /* Watercolor flower base */
+                linear-gradient(to bottom, rgba(224, 244, 247, 0.7), rgba(224, 244, 247, 0.9)),
+                url('https://www.transparenttextures.com/patterns/watercolor-paper.png'),
+                url('https://i.imgur.com/8Y0S09b.png'); /* Corner flower overlay */
             background-size: cover;
-            background-position: center;
             position: relative;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             overflow: hidden;
-            border: 8px solid white;
-            outline: 2px solid var(--gold);
-            outline-offset: -10px;
+            border: 6px solid white;
         }
 
-        /* Marigold Garland (Toran) at the top */
-        .toran {
+        /* Top & Side Marigold Garlands */
+        .garland-top {
             position: absolute;
             top: 0;
             width: 100%;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
+            height: 80px;
+            background: url('https://i.imgur.com/3Z6pX7P.png') repeat-x; /* Top horizontal string */
+            background-size: contain;
             z-index: 10;
         }
-        .marigold {
-            width: 25px;
-            height: 25px;
-            background: radial-gradient(circle, #ffeb3b, #ff9800);
-            border-radius: 50%;
-            box-shadow: 0 4px 0 #d32f2f;
-        }
 
-        /* Content Positioning */
+        .garland-pillar {
+            position: absolute;
+            top: 0;
+            width: 40px;
+            height: 250px;
+            background: url('https://i.imgur.com/lZ2S4S6.png') repeat-y; /* Vertical side strings */
+            background-size: contain;
+            z-index: 10;
+        }
+        .left-pillar { left: 10px; }
+        .right-pillar { right: 10px; }
+
         .content {
+            padding-top: 90px;
+            text-align: center;
             position: relative;
             z-index: 5;
-            text-align: center;
-            padding-top: 60px;
         }
 
-        .hosts {
-            color: var(--text-red);
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 5px;
+        .parents {
+            color: var(--dark-red);
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
 
         .solicit {
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            color: #555;
+            font-size: 12px;
             text-transform: uppercase;
-            font-weight: 600;
+            letter-spacing: 1px;
+            color: #444;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
 
-        /* Flowery Child Name */
-        .child-name {
+        .baby-name-box {
+            position: relative;
+            display: inline-block;
+        }
+
+        .baby-name {
             font-family: 'Great Vibes', cursive;
-            color: var(--name-green);
-            font-size: 75px;
-            margin: 10px 0;
-            filter: drop-shadow(2px 2px 2px rgba(255,255,255,0.8));
+            color: var(--leaf-green);
+            font-size: 85px;
+            margin: 0;
         }
 
-        .ceremony-title {
+        .annaprashan-title {
             font-family: 'Cinzel', serif;
-            color: var(--text-red);
-            font-size: 26px;
-            letter-spacing: 2px;
+            color: var(--dark-red);
+            font-size: 28px;
+            letter-spacing: 1px;
             margin-top: -15px;
         }
 
-        /* The Date Section with Gold Bars */
-        .date-section {
+        /* The Exact Date Box from Image */
+        .date-row {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 15px;
-            margin: 25px 0;
-            color: var(--text-red);
+            margin-top: 25px;
+            font-weight: 700;
         }
-        .date-side {
-            font-size: 16px;
-            font-weight: bold;
+
+        .month-year {
+            font-size: 24px;
+            color: #222;
         }
-        .date-center {
-            font-size: 34px;
-            font-weight: 800;
+
+        .day-box {
+            font-size: 32px;
+            color: var(--dark-red);
+            padding: 0 20px;
             border-left: 3px double var(--gold);
             border-right: 3px double var(--gold);
-            padding: 0 20px;
+            position: relative;
         }
 
-        /* Left Side Info & Right Side Image */
-        .bottom-layout {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            padding: 0 30px;
-            margin-top: 10px;
-        }
-
-        .info-block {
-            text-align: left;
-            width: 50%;
-            color: var(--text-red);
-            margin-bottom: 50px;
-        }
-
-        .time {
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        .location-box {
-            font-size: 14px;
-            color: #333;
-            font-weight: 600;
-            margin-top: 15px;
+        .details-text {
+            margin-top: 20px;
+            color: #000;
+            font-size: 20px;
+            font-weight: 700;
             line-height: 1.4;
         }
 
-        /* SON'S PICTURE (Artistic Integration) */
-        .yuvaan-photo-container {
-            width: 280px;
+        .location {
+            margin-top: 40px;
+            font-size: 16px;
+            color: #333;
+            width: 250px;
+            margin-left: 40px;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* The Baby's Image (Yuvaan) */
+        .yuvaan-img {
             position: absolute;
             bottom: 30px;
             right: -20px;
+            width: 330px;
+            height: 450px;
+            z-index: 4;
         }
 
-        .yuvaan-photo-container img {
+        .yuvaan-img img {
             width: 100%;
-            mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+            height: 100%;
+            object-fit: contain;
+            /* Fading the bottom of the photo into the card */
             -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
         }
 
-        /* Rice Bowl Overlay at bottom left */
-        .rice-bowl {
+        /* Large Lotus behind the baby */
+        .lotus {
+            position: absolute;
+            bottom: 120px;
+            right: 0px;
+            width: 200px;
+            opacity: 0.6;
+            z-index: 3;
+        }
+
+        /* Silver Thali / Rice Bowl */
+        .thali {
             position: absolute;
             bottom: 20px;
-            left: 20px;
-            width: 150px;
+            left: 15px;
+            width: 200px;
             z-index: 6;
         }
 
-        .footer-rsvp {
+        .temple-bg {
+            position: absolute;
+            bottom: 150px;
+            left: 0;
+            width: 100%;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .rsvp {
             position: absolute;
             bottom: 15px;
             width: 100%;
             text-align: center;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: bold;
-            color: var(--text-red);
-            background: rgba(255,255,255,0.4);
-            padding: 5px 0;
+            color: var(--dark-red);
+            z-index: 10;
         }
-
-        /* Corner Floral Overlay (Extra Flowery) */
-        .flower-overlay {
-            position: absolute;
-            width: 200px;
-            opacity: 0.9;
-            pointer-events: none;
-        }
-        .top-left-flowers { top: -20px; left: -20px; }
-        .bottom-left-flowers { bottom: -20px; left: -20px; transform: rotate(270deg); }
 
     </style>
 </head>
 <body>
 
     <div class="card">
-        <!-- Flowery Background Corners -->
-        <img src="https://i.imgur.com/8Y0S09b.png" class="flower-overlay top-left-flowers">
-        
-        <!-- Traditional Marigolds -->
-        <div class="toran">
-            <div class="marigold"></div><div class="marigold"></div><div class="marigold"></div>
-            <div class="marigold"></div><div class="marigold"></div><div class="marigold"></div>
-            <div class="marigold"></div><div class="marigold"></div><div class="marigold"></div>
-        </div>
+        <!-- Decorations -->
+        <div class="garland-top"></div>
+        <div class="garland-pillar left-pillar"></div>
+        <div class="garland-pillar right-pillar"></div>
+        <img src="https://i.imgur.com/K53M82p.png" class="temple-bg" alt="temple">
+        <img src="https://i.imgur.com/89k6S3i.png" class="lotus" alt="lotus">
 
         <div class="content">
-            <div class="hosts">Kunal Chaudhary & Suruchi Dev</div>
-            <div class="solicit">Solicit your presence at the<br>auspicious occasion of their little son</div>
-            
-            <div class="child-name">Yuvaan</div>
-            <div class="ceremony-title">ANNAPRASHAN CEREMONY</div>
-
-            <!-- Date Section -->
-            <div class="date-section">
-                <div class="date-side">7 BAISAKH</div>
-                <div class="date-center">2083</div>
-                <div class="date-side">20 APRIL 2026</div>
+            <div class="parents">Kunal Chaudhary & Suruchi Dev</div>
+            <div class="solicit">
+                SOLICIT YOUR PRESENCE AT THE<br>
+                AUSPICIOUS OCCASION OF THEIR LITTLE SON
             </div>
-            <div style="font-weight: bold; color: var(--text-red); margin-top: -20px; letter-spacing: 2px;">MONDAY</div>
+            
+            <div class="baby-name-box">
+                <p class="baby-name">Yuvaan's</p>
+            </div>
 
-            <!-- Bottom Left Info -->
-            <div class="bottom-layout">
-                <div class="info-block">
-                    <div class="time">4:00 PM Onwards</div>
-                    <div style="font-weight: bold; margin-bottom: 10px;">Followed by Dinner</div>
-                    
-                    <div class="location-box">
-                        📍 At Our Residence,<br>
-                        Jorpati, Kathmandu,<br>
-                        Nepal
-                    </div>
-                </div>
+            <div class="annaprashan-title">SUBH ANNAPRASHAN CEREMONY</div>
+
+            <!-- Date Box -->
+            <div class="date-row">
+                <span class="month-year">Baisakh</span>
+                <span class="day-box">7TH</span>
+                <span class="month-year">2083</span>
+            </div>
+
+            <!-- Time & Info -->
+            <div class="details-text">
+                20 April 2026<br>
+                4 PM onwards<br>
+                <span style="font-size: 16px;">Followed by dinner</span>
+            </div>
+
+            <!-- Location -->
+            <div class="location">
+                At<br>
+                Our Own Residence,<br>
+                Jorpati, Kathmandu,<br>
+                Nepal.
             </div>
         </div>
 
-        <!-- YUVAAN'S PICTURE -->
-        <div class="yuvaan-photo-container">
-            <!-- Ensure your photo yuvaan_pp.jpg is in the same folder as this code -->
+        <!-- The Main Picture of Yuvaan -->
+        <div class="yuvaan-img">
             <img src="yuvaan_pp.jpg" alt="Yuvaan">
         </div>
 
-        <!-- Traditional Silver Rice Bowl -->
-        <div class="rice-bowl">
-            <img src="https://i.imgur.com/6X2f7pU.png" style="width: 100%;" alt="Bowl">
+        <!-- Rice Bowl Illustration -->
+        <div class="thali">
+            <img src="https://i.imgur.com/6X2f7pU.png" style="width:100%;" alt="Rice Bowl Thali">
         </div>
 
-        <div class="footer-rsvp">
+        <div class="rsvp">
             RSVP: +977-9860332358
         </div>
     </div>

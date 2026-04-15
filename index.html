@@ -3,235 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuvaan's Flowery Pasni Invitation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <title>Yuvaan's Floral Annaprashan Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&family=Cinzel:wght@600&family=Marcellus&display=swap" rel="stylesheet">
     <style>
         :root {
-            --floral-pink: #f8bbd0;
-            --leaf-green: #2d5a27;
-            --deep-red: #b32d2e;
-            --soft-cream: #fffaf0;
+            --text-red: #b32d2e;
+            --name-green: #2d5a27;
             --gold: #d4af37;
+            --cream-bg: #fffcf5;
         }
 
         body {
-            background-color: #f0f0f0;
+            background-color: #2c3e50;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Marcellus', serif;
         }
 
+        /* Main Invitation Canvas */
         .card {
-            width: 450px;
-            height: 720px;
-            background-color: var(--soft-cream);
+            width: 500px;
+            height: 750px;
+            background-color: var(--cream-bg);
             /* Flowery Background Pattern */
             background-image: 
-                linear-gradient(rgba(255, 250, 240, 0.8), rgba(255, 250, 240, 0.8)),
-                url('https://www.transparenttextures.com/patterns/floral-paper.png');
+                url('https://www.transparenttextures.com/patterns/natural-paper.png'),
+                url('https://img.freepik.com/free-vector/hand-painted-watercolor-floral-background_23-2148438595.jpg?size=626&ext=jpg'); /* Watercolor flower base */
+            background-size: cover;
+            background-position: center;
             position: relative;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            border: 12px solid white;
-            outline: 1px solid #ddd;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
             overflow: hidden;
-            text-align: center;
+            border: 8px solid white;
+            outline: 2px solid var(--gold);
+            outline-offset: -10px;
         }
 
-        /* Flower Corner Decorations */
-        .corner-flower {
+        /* Marigold Garland (Toran) at the top */
+        .toran {
             position: absolute;
-            width: 150px;
-            height: 150px;
-            z-index: 1;
-            opacity: 0.8;
-        }
-        .top-left { top: -20px; left: -20px; transform: rotate(0deg); }
-        .top-right { top: -20px; right: -20px; transform: rotate(90deg); }
-        .bottom-left { bottom: -20px; left: -20px; transform: rotate(-90deg); }
-        .bottom-right { bottom: -20px; right: -20px; transform: rotate(180deg); }
-
-        .header {
-            margin-top: 50px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .parents-name {
-            color: var(--leaf-green);
-            font-size: 18px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .ceremony-title {
-            font-family: 'Playfair Display', serif;
-            color: var(--deep-red);
-            font-size: 26px;
-            margin-top: 10px;
-            letter-spacing: 2px;
-        }
-
-        /* Flowery Wreath Frame for Photo */
-        .photo-wreath {
-            position: relative;
-            width: 220px;
-            height: 220px;
-            margin: 30px auto;
-            z-index: 2;
-        }
-
-        .wreath-border {
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            width: 240px;
-            height: 240px;
-            border: 4px double var(--gold);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Adding decorative dots/flowers around wreath */
-        .wreath-border::after {
-            content: "✿ 🌸 ✿ 🌺 ✿ 🌸 ✿ 🌺 ✿ 🌸 ✿ 🌺";
-            position: absolute;
-            width: 110%;
-            height: 110%;
-            border-radius: 50%;
-            font-size: 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            word-spacing: 20px;
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .baby-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 5px solid white;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 3;
-            margin: 10px;
-        }
-
-        .baby-photo img {
+            top: 0;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            z-index: 10;
+        }
+        .marigold {
+            width: 25px;
+            height: 25px;
+            background: radial-gradient(circle, #ffeb3b, #ff9800);
+            border-radius: 50%;
+            box-shadow: 0 4px 0 #d32f2f;
         }
 
-        .name-section {
-            margin-top: 20px;
+        /* Content Positioning */
+        .content {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            padding-top: 60px;
         }
 
-        .baby-name {
-            font-family: 'Great Vibes', cursive;
-            font-size: 60px;
-            color: var(--leaf-green);
-            margin: 0;
+        .hosts {
+            color: var(--text-red);
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
 
-        .event-details {
-            margin-top: 15px;
-            color: var(--deep-red);
+        .solicit {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            color: #555;
+            text-transform: uppercase;
             font-weight: 600;
         }
 
-        .date-row {
-            font-size: 20px;
-            border-top: 1px solid var(--gold);
-            border-bottom: 1px solid var(--gold);
-            display: inline-block;
-            padding: 5px 20px;
+        /* Flowery Child Name */
+        .child-name {
+            font-family: 'Great Vibes', cursive;
+            color: var(--name-green);
+            font-size: 75px;
             margin: 10px 0;
+            filter: drop-shadow(2px 2px 2px rgba(255,255,255,0.8));
         }
 
-        .location {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.5;
+        .ceremony-title {
+            font-family: 'Cinzel', serif;
+            color: var(--text-red);
+            font-size: 26px;
+            letter-spacing: 2px;
+            margin-top: -15px;
+        }
+
+        /* The Date Section with Gold Bars */
+        .date-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 25px 0;
+            color: var(--text-red);
+        }
+        .date-side {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .date-center {
+            font-size: 34px;
+            font-weight: 800;
+            border-left: 3px double var(--gold);
+            border-right: 3px double var(--gold);
+            padding: 0 20px;
+        }
+
+        /* Left Side Info & Right Side Image */
+        .bottom-layout {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 0 30px;
             margin-top: 10px;
         }
 
-        .footer {
-            margin-top: 30px;
-            padding-bottom: 30px;
+        .info-block {
+            text-align: left;
+            width: 50%;
+            color: var(--text-red);
+            margin-bottom: 50px;
         }
 
-        .rsvp {
-            background-color: var(--leaf-green);
-            color: white;
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 14px;
+        .time {
+            font-size: 22px;
             font-weight: bold;
         }
 
-        /* Rice Bowl Icon at bottom */
-        .rice-bowl {
-            font-size: 30px;
-            margin-top: 10px;
+        .location-box {
+            font-size: 14px;
+            color: #333;
+            font-weight: 600;
+            margin-top: 15px;
+            line-height: 1.4;
         }
+
+        /* SON'S PICTURE (Artistic Integration) */
+        .yuvaan-photo-container {
+            width: 280px;
+            position: absolute;
+            bottom: 30px;
+            right: -20px;
+        }
+
+        .yuvaan-photo-container img {
+            width: 100%;
+            mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+        }
+
+        /* Rice Bowl Overlay at bottom left */
+        .rice-bowl {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 150px;
+            z-index: 6;
+        }
+
+        .footer-rsvp {
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+            color: var(--text-red);
+            background: rgba(255,255,255,0.4);
+            padding: 5px 0;
+        }
+
+        /* Corner Floral Overlay (Extra Flowery) */
+        .flower-overlay {
+            position: absolute;
+            width: 200px;
+            opacity: 0.9;
+            pointer-events: none;
+        }
+        .top-left-flowers { top: -20px; left: -20px; }
+        .bottom-left-flowers { bottom: -20px; left: -20px; transform: rotate(270deg); }
 
     </style>
 </head>
 <body>
 
     <div class="card">
-        <!-- Botanical Corner Elements -->
-        <div class="corner-flower top-left">🌸🍃</div>
-        <div class="corner-flower top-right">🌺🌿</div>
-        <div class="corner-flower bottom-left">🌿🌺</div>
-        <div class="corner-flower bottom-right">🍃🌸</div>
-
-        <div class="header">
-            <div class="parents-name">Kunal Chaudhary & Suruchi Dev</div>
-            <div class="ceremony-title">Annaprashan Ceremony</div>
-            <p style="font-size: 12px; font-style: italic; color: #777;">Invite you to share the joy of their son's first rice</p>
+        <!-- Flowery Background Corners -->
+        <img src="https://i.imgur.com/8Y0S09b.png" class="flower-overlay top-left-flowers">
+        
+        <!-- Traditional Marigolds -->
+        <div class="toran">
+            <div class="marigold"></div><div class="marigold"></div><div class="marigold"></div>
+            <div class="marigold"></div><div class="marigold"></div><div class="marigold"></div>
+            <div class="marigold"></div><div class="marigold"></div><div class="marigold"></div>
         </div>
 
-        <!-- Photo with Floral Wreath -->
-        <div class="photo-wreath">
-            <div class="wreath-border"></div>
-            <div class="baby-photo">
-                <img src="yuvaan_pp.jpg" alt="Yuvaan">
+        <div class="content">
+            <div class="hosts">Kunal Chaudhary & Suruchi Dev</div>
+            <div class="solicit">Solicit your presence at the<br>auspicious occasion of their little son</div>
+            
+            <div class="child-name">Yuvaan</div>
+            <div class="ceremony-title">ANNAPRASHAN CEREMONY</div>
+
+            <!-- Date Section -->
+            <div class="date-section">
+                <div class="date-side">7 BAISAKH</div>
+                <div class="date-center">2083</div>
+                <div class="date-side">20 APRIL 2026</div>
+            </div>
+            <div style="font-weight: bold; color: var(--text-red); margin-top: -20px; letter-spacing: 2px;">MONDAY</div>
+
+            <!-- Bottom Left Info -->
+            <div class="bottom-layout">
+                <div class="info-block">
+                    <div class="time">4:00 PM Onwards</div>
+                    <div style="font-weight: bold; margin-bottom: 10px;">Followed by Dinner</div>
+                    
+                    <div class="location-box">
+                        📍 At Our Residence,<br>
+                        Jorpati, Kathmandu,<br>
+                        Nepal
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="name-section">
-            <h1 class="baby-name">Yuvaan</h1>
-            <div class="event-details">
-                <div class="date-row">7 Baisakh 2083</div>
-                <div style="font-size: 14px;">(20 April 2026)</div>
-                <div style="margin-top: 10px;">Monday | 4:00 PM Onwards</div>
-            </div>
+        <!-- YUVAAN'S PICTURE -->
+        <div class="yuvaan-photo-container">
+            <!-- Ensure your photo yuvaan_pp.jpg is in the same folder as this code -->
+            <img src="yuvaan_pp.jpg" alt="Yuvaan">
         </div>
 
-        <div class="location">
-            📍 <strong>At Our Residence</strong><br>
-            Jorpati, Kathmandu, Nepal
+        <!-- Traditional Silver Rice Bowl -->
+        <div class="rice-bowl">
+            <img src="https://i.imgur.com/6X2f7pU.png" style="width: 100%;" alt="Bowl">
         </div>
 
-        <div class="footer">
-            <div class="rice-bowl">🥣🥄</div>
-            <div class="rsvp">RSVP: +977-9860332358</div>
-            <p style="font-size: 11px; margin-top: 8px; color: #888;">Followed by Dinner</p>
+        <div class="footer-rsvp">
+            RSVP: +977-9860332358
         </div>
     </div>
 

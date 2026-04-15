@@ -3,147 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuvaan's Pasni Invitation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Yuvaan's Royal Pasni Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --royal-blue: #003366;
-            --gold: #D4AF37;
-            --marigold: #FF8C00;
-            --crimson: #B22222;
-            --cream: #FFFDF5;
+            --deep-teal: #004d4d;
+            --royal-gold: #c5a059;
+            --bright-gold: #f9d976;
+            --accent-orange: #e67e22;
+            --off-white: #fffcf2;
         }
 
         body {
-            background-color: #f0f0f0;
+            background-color: #1a1a1a;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
         }
 
+        /* The Main Card */
         .card {
-            background-color: var(--cream);
+            background-color: var(--off-white);
             width: 100%;
-            max-width: 450px;
+            max-width: 480px;
             position: relative;
-            border: 8px double var(--gold);
-            border-radius: 20px;
+            border: 12px double var(--royal-gold);
+            border-radius: 5px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            text-align: center;
-            margin: 20px;
+            background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
         }
 
-        /* Festive Toran (Garland) */
-        .toran {
-            background: repeating-linear-gradient(90deg, var(--marigold), var(--marigold) 20px, #FFD700 20px, #FFD700 40px);
-            height: 15px;
-            width: 100%;
-            position: relative;
-        }
-        .toran::after {
-            content: "✿ ✿ ✿ ✿ ✿ ✿ ✿ ✿ ✿ ✿ ✿ ✿ ✿";
-            display: block;
-            color: var(--crimson);
-            font-size: 20px;
-            margin-top: 5px;
-        }
-
-        .content {
-            padding: 30px 20px;
-        }
-
-        .heading {
-            font-family: 'Playfair Display', serif;
-            color: var(--crimson);
-            font-size: 28px;
-            margin: 10px 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Photo Styling */
-        .photo-container {
-            width: 180px;
-            height: 180px;
-            margin: 20px auto;
+        /* Artistic Mandala Background Decals */
+        .card::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 250px;
+            height: 250px;
+            background: repeating-conic-gradient(from 0deg, var(--royal-gold) 0deg 10deg, transparent 10deg 20deg);
+            opacity: 0.1;
             border-radius: 50%;
-            border: 5px solid var(--gold);
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            background-color: #eee;
         }
 
-        .photo-container img {
+        /* Heavy Ornamental Header */
+        .header-deco {
+            background: var(--deep-teal);
+            color: var(--bright-gold);
+            padding: 25px 10px;
+            text-align: center;
+            border-bottom: 5px solid var(--royal-gold);
+        }
+
+        .header-deco h2 {
+            font-family: 'Cinzel', serif;
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* THE HEAVY ARTISTIC FRAME */
+        .frame-wrapper {
+            position: relative;
+            width: 240px;
+            height: 240px;
+            margin: 40px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* The Sunburst / Petal Layer */
+        .outer-frame {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--royal-gold);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: rotate 20s linear infinite;
+            opacity: 0.8;
+        }
+
+        .inner-frame {
+            position: absolute;
+            width: 85%;
+            height: 85%;
+            background: linear-gradient(45deg, var(--royal-gold), var(--bright-gold));
+            border-radius: 50%;
+            border: 4px solid var(--deep-teal);
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
+        }
+
+        .photo-box {
+            width: 92%;
+            height: 92%;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid white;
+        }
+
+        .photo-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .intro-text {
-            font-style: italic;
-            color: #555;
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Typography */
+        .content {
+            text-align: center;
+            padding: 0 30px 40px;
+        }
+
+        .invitation-for {
             font-size: 14px;
-            padding: 0 20px;
+            color: var(--deep-teal);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0;
         }
 
         .baby-name {
             font-family: 'Great Vibes', cursive;
-            font-size: 55px;
-            color: var(--royal-blue);
-            margin: 10px 0;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            font-size: 65px;
+            color: var(--accent-orange);
+            margin: 0px 0 20px;
+            filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.1));
         }
 
-        .event-details {
-            background-color: rgba(212, 175, 55, 0.1);
-            margin: 20px auto;
+        .event-info {
+            border: 1px solid var(--royal-gold);
             padding: 15px;
-            border-radius: 10px;
-            width: 85%;
+            position: relative;
+            margin-bottom: 25px;
         }
 
-        .detail-row {
-            margin: 8px 0;
-            font-size: 16px;
+        .event-info::after {
+            content: "⬥";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--off-white);
+            padding: 0 10px;
+            color: var(--royal-gold);
+        }
+
+        .date-time {
+            font-size: 18px;
+            font-weight: 600;
             color: #333;
         }
 
-        .detail-row strong {
-            color: var(--crimson);
-        }
-
-        .location-tag {
-            color: var(--royal-blue);
-            font-weight: 600;
-        }
-
-        .parents-info {
-            margin-top: 25px;
-            border-top: 1px solid #ddd;
-            padding-top: 15px;
-        }
-
-        .parents-info p {
-            margin: 5px 0;
-            font-weight: 600;
-            color: #444;
-        }
-
-        .rsvp-box {
-            background-color: var(--royal-blue);
-            color: white;
-            padding: 10px;
-            margin-top: 20px;
-            font-size: 14px;
-        }
-
-        .footer-icons {
-            font-size: 24px;
+        .location {
+            color: var(--deep-teal);
+            font-weight: 700;
             margin-top: 10px;
+            display: block;
+        }
+
+        .parents {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .parents strong {
+            color: #000;
+            display: block;
+            font-size: 17px;
+        }
+
+        .rsvp-footer {
+            background: var(--deep-teal);
+            color: white;
+            padding: 15px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .rsvp-footer strong {
+            color: var(--bright-gold);
         }
 
     </style>
@@ -151,47 +205,43 @@
 <body>
 
     <div class="card">
-        <div class="toran"></div>
+        <div class="header-deco">
+            <h2>SHUBH PASNI</h2>
+        </div>
         
         <div class="content">
-            <div class="heading">Shubh Pasni</div>
+            <p class="invitation-for">The First Rice Ceremony of</p>
             
-            <p class="intro-text">With the blessings of Lord Ganesh, we invite you to celebrate the Rice Feeding Ceremony of our little prince.</p>
-
-            <!-- Son's Picture -->
-            <div class="photo-container">
-                <img src="yuvaan_pp.jpg" alt="Yuvaan">
+            <!-- HEAVY ARTISTIC PHOTO FRAME -->
+            <div class="frame-wrapper">
+                <div class="outer-frame"></div>
+                <div class="inner-frame">
+                    <div class="photo-box">
+                        <!-- Ensure yuvaan_pp.jpg is in the same folder -->
+                        <img src="yuvaan_pp.jpg" alt="Yuvaan">
+                    </div>
+                </div>
             </div>
 
             <div class="baby-name">Yuvaan</div>
 
-            <p style="font-weight: 600; color: var(--marigold);">A New Chapter of Flavors Begins!</p>
-
-            <div class="event-details">
-                <div class="detail-row">
-                    <strong>DATE:</strong> 7 Baisakh 2083
+            <div class="event-info">
+                <div class="date-time">
+                    7 Baisakh 2083 <br>
+                    <span style="font-size: 14px; color: #777;">(20 April 2026)</span><br>
+                    4:00 PM Onwards
                 </div>
-                <div class="detail-row" style="font-size: 14px; margin-top: -5px; color: #666;">
-                    (20 April 2026)
-                </div>
-                <div class="detail-row">
-                    <strong>TIME:</strong> 4:00 PM Onwards
-                </div>
-                <div class="detail-row">
-                    <strong>LOCATION:</strong> <span class="location-tag">Jorpati, Kathmandu</span>
-                </div>
+                <span class="location">Jorpati, Kathmandu</span>
             </div>
 
-            <div class="parents-info">
-                <p style="font-size: 12px; text-transform: uppercase; color: #888;">Proud Parents</p>
-                <p>Kunal Chaudhary & Suruchi Dev</p>
+            <div class="parents">
+                Invited by:
+                <strong>Kunal Chaudhary & Suruchi Dev</strong>
             </div>
-
-            <div class="footer-icons">🥣 🥄 🍯</div>
         </div>
 
-        <div class="rsvp-box">
-            RSVP: +977-9860332358
+        <div class="rsvp-footer">
+            RSVP: <strong>+977-9860332358</strong>
         </div>
     </div>
 

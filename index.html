@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Annaprashan Invitation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <title>Yuvaan's Pasni Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --royal-blue: #003366;
+            --gold: #D4AF37;
+            --marigold: #FF8C00;
+            --crimson: #B22222;
+            --cream: #FFFDF5;
+        }
+
         body {
-            background-color: #fdf5e6;
+            background-color: #f0f0f0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -17,103 +25,125 @@
         }
 
         .card {
-            background-color: #fffaf0;
+            background-color: var(--cream);
             width: 100%;
-            max-width: 500px;
-            padding: 40px;
-            border: 15px solid #d4af37; /* Gold Border */
-            outline: 2px solid #800000; /* Maroon Thin Line */
-            outline-offset: -10px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 450px;
             position: relative;
+            border: 8px double var(--gold);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            text-align: center;
             margin: 20px;
         }
 
-        /* Decorative Corners */
-        .card::before, .card::after {
-            content: '✿';
-            position: absolute;
-            color: #d4af37;
-            font-size: 24px;
+        /* Festive Toran (Garland) */
+        .toran {
+            background: repeating-linear-gradient(90deg, var(--marigold), var(--marigold) 20px, #FFD700 20px, #FFD700 40px);
+            height: 15px;
+            width: 100%;
+            position: relative;
         }
-        .card::before { top: 15px; left: 15px; }
-        .card::after { bottom: 15px; right: 15px; }
-
-        .ganesha {
-            width: 80px;
-            margin-bottom: 10px;
+        .toran::after {
+            content: "✿ ✿ ✿ ✿ ✿ ✿ ✿ ✿ ✿ ✿ ✿ ✿ ✿";
+            display: block;
+            color: var(--crimson);
+            font-size: 20px;
+            margin-top: 5px;
         }
 
-        h2 {
+        .content {
+            padding: 30px 20px;
+        }
+
+        .heading {
             font-family: 'Playfair Display', serif;
-            color: #800000;
-            letter-spacing: 2px;
-            margin-bottom: 5px;
+            color: var(--crimson);
+            font-size: 28px;
+            margin: 10px 0;
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .sub-heading {
-            font-size: 14px;
-            color: #555;
+        /* Photo Styling */
+        .photo-container {
+            width: 180px;
+            height: 180px;
+            margin: 20px auto;
+            border-radius: 50%;
+            border: 5px solid var(--gold);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background-color: #eee;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .intro-text {
             font-style: italic;
-            margin-bottom: 30px;
-        }
-
-        .invitation-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            line-height: 1.6;
-            color: #333;
+            color: #555;
+            font-size: 14px;
+            padding: 0 20px;
         }
 
         .baby-name {
             font-family: 'Great Vibes', cursive;
-            font-size: 45px;
-            color: #d4af37;
-            margin: 20px 0;
-            display: block;
-        }
-
-        .details-box {
-            border-top: 1px solid #d4af37;
-            border-bottom: 1px solid #d4af37;
-            padding: 20px 0;
-            margin: 30px 0;
-        }
-
-        .detail-item {
+            font-size: 55px;
+            color: var(--royal-blue);
             margin: 10px 0;
-            font-size: 16px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
-        .detail-item strong {
-            color: #800000;
+        .event-details {
+            background-color: rgba(212, 175, 55, 0.1);
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 10px;
+            width: 85%;
         }
 
-        .footer {
+        .detail-row {
+            margin: 8px 0;
             font-size: 16px;
             color: #333;
         }
 
-        .footer strong {
-            display: block;
-            margin-top: 5px;
-            color: #800000;
+        .detail-row strong {
+            color: var(--crimson);
         }
 
-        .rsvp {
+        .location-tag {
+            color: var(--royal-blue);
+            font-weight: 600;
+        }
+
+        .parents-info {
             margin-top: 25px;
-            font-size: 13px;
-            color: #666;
-            border-top: 1px dashed #ccc;
+            border-top: 1px solid #ddd;
             padding-top: 15px;
         }
 
-        /* Gold Spoon Icon Decoration */
-        .icon-bowl {
-            font-size: 30px;
-            margin: 10px 0;
+        .parents-info p {
+            margin: 5px 0;
+            font-weight: 600;
+            color: #444;
+        }
+
+        .rsvp-box {
+            background-color: var(--royal-blue);
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .footer-icons {
+            font-size: 24px;
+            margin-top: 10px;
         }
 
     </style>
@@ -121,40 +151,47 @@
 <body>
 
     <div class="card">
-        <!-- Religious Symbol (Ganesha placeholder or Om) -->
-        <div class="ganesha">
-            <svg viewBox="0 0 100 100" fill="#800000">
-                <path d="M50 5C30 5 15 20 15 40C15 60 30 75 50 75C70 75 85 60 85 40C85 20 70 5 50 5ZM50 65C35 65 25 55 25 40C25 25 35 15 50 15C65 15 75 25 75 40C75 55 65 65 50 65Z" />
-            </svg>
+        <div class="toran"></div>
+        
+        <div class="content">
+            <div class="heading">Shubh Pasni</div>
+            
+            <p class="intro-text">With the blessings of Lord Ganesh, we invite you to celebrate the Rice Feeding Ceremony of our little prince.</p>
+
+            <!-- Son's Picture -->
+            <div class="photo-container">
+                <img src="yuvaan_pp.jpg" alt="Yuvaan">
+            </div>
+
+            <div class="baby-name">Yuvaan</div>
+
+            <p style="font-weight: 600; color: var(--marigold);">A New Chapter of Flavors Begins!</p>
+
+            <div class="event-details">
+                <div class="detail-row">
+                    <strong>DATE:</strong> 7 Baisakh 2083
+                </div>
+                <div class="detail-row" style="font-size: 14px; margin-top: -5px; color: #666;">
+                    (20 April 2026)
+                </div>
+                <div class="detail-row">
+                    <strong>TIME:</strong> 4:00 PM Onwards
+                </div>
+                <div class="detail-row">
+                    <strong>LOCATION:</strong> <span class="location-tag">Jorpati, Kathmandu</span>
+                </div>
+            </div>
+
+            <div class="parents-info">
+                <p style="font-size: 12px; text-transform: uppercase; color: #888;">Proud Parents</p>
+                <p>Kunal Chaudhary & Suruchi Dev</p>
+            </div>
+
+            <div class="footer-icons">🥣 🥄 🍯</div>
         </div>
 
-        <h2>Shubh Annaprashan</h2>
-        <div class="sub-heading">“A small spoonful today, a lifetime of flavors ahead!”</div>
-
-        <div class="invitation-text">
-            With the divine blessings of our elders and the Almighty, 
-            we cordially invite you to the Rice Feeding Ceremony of our beloved son,
-            <span class="baby-name">[Son's Name]</span>
-            Please grace us with your presence and blessings as he takes his first taste of solid food.
-        </div>
-
-        <div class="icon-bowl">🥣🥄</div>
-
-        <div class="details-box">
-            <div class="detail-item"><strong>DATE:</strong> [Sunday, May 15th, 2024]</div>
-            <div class="detail-item"><strong>TIME:</strong> [11:00 AM Onwards]</div>
-            <div class="detail-item"><strong>VENUE:</strong> [Name of Venue/Address, Kathmandu]</div>
-        </div>
-
-        <div class="footer">
-            With Love & Regards:
-            <strong>[Parent's Names]</strong>
-            <strong>& The [Surname] Family</strong>
-        </div>
-
-        <div class="rsvp">
-            Lunch will be served following the ceremony.<br>
-            RSVP: [Your Phone Number]
+        <div class="rsvp-box">
+            RSVP: +977-9860332358
         </div>
     </div>
 

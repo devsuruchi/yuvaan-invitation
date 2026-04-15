@@ -1,262 +1,350 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" class="no-js" xmlns:mso="urn:schemas-microsoft-com:office:office"
+    xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuvaan's Annaprashan Invitation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&family=Cinzel:wght@600&family=Marcellus&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --text-red: #b32d2e;
-            --name-green: #2d5a27;
-            --gold: #d4af37;
-            --sky-blue: #e0f2f7;
-        }
-
-        body {
-            background-color: #333;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            font-family: 'Marcellus', serif;
-        }
-
-        /* Main Card Container */
-        .card {
-            width: 500px;
-            height: 750px;
-            background: var(--sky-blue);
-            background-image: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent), 
-                              url('https://www.transparenttextures.com/patterns/watercolor-paper.png');
-            position: relative;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            overflow: hidden;
-            border: 5px solid white;
-        }
-
-        /* Top Marigold Garland (Toran) */
-        .garland {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            height: 100px;
-            background: url('https://i.imgur.com/3Z6pX7P.png') repeat-x; /* Mock garland or CSS shapes */
-            background-size: contain;
-            z-index: 10;
-        }
-
-        /* Mimicking the garland with CSS shapes */
-        .marigold-row {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding-top: 5px;
-        }
-        .flower {
-            width: 30px;
-            height: 30px;
-            background: orange;
-            border-radius: 50%;
-            box-shadow: 0 3px 0 red, 0 6px 0 orange;
-            position: relative;
-        }
-        .flower::after {
-            content: "🍃";
-            position: absolute;
-            bottom: -15px;
-            left: 5px;
-            font-size: 12px;
-        }
-
-        /* Host Names */
-        .hosts {
-            margin-top: 80px;
-            color: var(--text-red);
-            font-size: 22px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .solicit {
-            text-align: center;
-            font-size: 13px;
-            letter-spacing: 1px;
-            color: #444;
-            margin-top: 10px;
-            text-transform: uppercase;
-        }
-
-        /* Child's Name (Artistic Script) */
-        .child-name {
-            font-family: 'Great Vibes', cursive;
-            color: var(--name-green);
-            font-size: 65px;
-            text-align: center;
-            margin: 5px 0;
-            position: relative;
-        }
-        .child-name::after {
-            content: "'s";
-            font-family: 'Marcellus', serif;
-            font-size: 24px;
-            vertical-align: middle;
-        }
-
-        .ceremony-title {
-            font-family: 'Cinzel', serif;
-            color: var(--text-red);
-            font-size: 28px;
-            text-align: center;
-            letter-spacing: 1px;
-        }
-
-        /* Date Section with Gold Dividers */
-        .date-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
-            color: var(--text-red);
-        }
-        .date-main {
-            font-size: 32px;
-            font-weight: bold;
-            border-left: 3px double var(--gold);
-            border-right: 3px double var(--gold);
-            padding: 0 15px;
-        }
-        .date-sub {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        /* Location and Time Info */
-        .info {
-            text-align: left;
-            margin-left: 40px;
-            width: 200px; /* Constrained to left side */
-            margin-top: 20px;
-            color: var(--text-red);
-            line-height: 1.4;
-        }
-
-        .time {
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        .location {
-            font-size: 14px;
-            color: #333;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        /* Yuvaan's Image (Placed like the baby in the ref) */
-        .yuvaan-img {
-            position: absolute;
-            bottom: 40px;
-            right: -20px;
-            width: 320px;
-            height: 420px;
-            z-index: 5;
-        }
-        .yuvaan-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            /* Applying a slight soft edge mask like the reference */
-            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-        }
-
-        /* Rice Bowl (Lower Left) */
-        .rice-bowl {
-            position: absolute;
-            bottom: 30px;
-            left: 20px;
-            width: 180px;
-        }
-
-        /* Background Temple Elements (Watermark style) */
-        .temple-bg {
-            position: absolute;
-            bottom: 50px;
-            left: -20px;
-            width: 100%;
-            opacity: 0.1;
-            z-index: 1;
-        }
-
-        .footer-rsvp {
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-            text-align: center;
-            font-size: 12px;
-            font-weight: bold;
-            color: var(--text-red);
-        }
-
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Pragma" content="no-cache" />
+    <title>KBTG Songkran</title>
+    <meta name="author" content="Jesse Suwanno" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 </head>
+
 <body>
+    <main>
+        <div class="content">
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="flower"></div>
+            <div class="mali"></div>
+            <div class="mali"></div>
+            <div class="mali"></div>
+            <div class="mali"></div>
+            <div class="splash"></div>
+            <div class="gallery">
+                <div class="header">
+                    <div class="one-kbtg"></div>
+                    <div class="caption">
+                        คลิกที่รูป เพื่อเขียนคำขอขมาหรือคำอวยพร แด่ผู้บริหารและผู้อาวุโส 9 ท่าน
+                    </div>
+                    <div class="logo"></div>
+                </div>
+                <div class="hero"></div>
 
-    <div class="card">
-        <!-- Garland -->
-        <div class="marigold-row">
-            <div class="flower"></div><div class="flower"></div><div class="flower"></div>
-            <div class="flower"></div><div class="flower"></div><div class="flower"></div>
-            <div class="flower"></div><div class="flower"></div><div class="flower"></div>
-            <div class="flower"></div><div class="flower"></div><div class="flower"></div>
-        </div>
+                <div class="gallery__ceo">
+                    <figure class="gallery__item ceo">
+                        <div class="gallery__item-img">
+                            <div class="gallery__item-imginner avatar__ceo-3"
+                                onclick="window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=n98RjhVGT0OmxooMtP_rbOnqjq44y0RLn2SLG8J-jN9UN1ZHRllISzVTOUwyTEdCMFQ2U0RTSklQWS4u', '_blank').focus();">
+                                <div class="frost"></div>
+                                <div class="greeting">
+                                    <div class="greeting-text">
+                                        เนื่องในวันปีใหม่ไทยนี้ผมขอให้ทุกคนจงประสบด้วยความสุขความเจริญมีสุขภาพที่แข็งแรงทั้งกายและใจทำการอะไรก็ให้สมหวังทุกประการ
+                                    </div>
+                                    <div class="greeting-button">เขียนคำอวยพร</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ceo-name">ดร.ไพรัช ธัชยพงษ์</div>
+                    </figure>
+                    <figure class="gallery__item ceo">
+                        <div class="gallery__item-img">
+                            <div class="gallery__item-imginner avatar__ceo-1"
+                                onclick="window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=n98RjhVGT0OmxooMtP_rbOnqjq44y0RLn2SLG8J-jN9UMFpRTUVFSzRIODFQRzYwMFk4RjREMlI2Vy4u', '_blank').focus();">
+                                <div class="frost"></div>
+                                <div class="greeting">
+                                    <div class="greeting-text">
+                                        ขอให้มีความสุขสดชื่น เต็มไปด้วยพลังที่ดี สวัสดีวันปีใหม่ไทย
+                                        และสุขสันต์วันสงกรานต์ค่ะ
+                                    </div>
+                                    <div class="greeting-button">เขียนคำอวยพร</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ceo-name ple">คุณขัตติยา อินทรวิชัย</div>
+                    </figure>
+                    <figure class="gallery__item ceo">
+                        <div class="gallery__item-img">
+                            <div class="gallery__item-imginner avatar__ceo-2"
+                                onclick="window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=n98RjhVGT0OmxooMtP_rbOnqjq44y0RLn2SLG8J-jN9UOVVFM1JTRTNPWkNYUjdUQzM1QzI5Q0ZJTy4u', '_blank').focus();">
+                                <div class="frost"></div>
+                                <div class="greeting">
+                                    <div class="greeting-text">
+                                        ขอให้เพื่อนพนักงาน KBTG และครอบครัวทุกคนมีความสุขมาก ๆ
+                                        ใครเดินทางไปต่างจังหวัดก็ขอให้เดินทางปลอดภัย ใครอยู่บ้านก็ขอให้พักผ่อน
+                                        ชาร์ตพลังไว้เยอะ ๆ
+                                        นะครับ "สุขสันต์วันสงกรานต์ครับ...กระทิง"
+                                    </div>
+                                    <div class="greeting-button">เขียนคำอวยพร</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ceo-name krating">คุณเรืองโรจน์ พูนผล</div>
+                    </figure>
+                </div>
 
-        <!-- Text Section -->
-        <div class="hosts">Kunal Chaudhary & Suruchi Dev</div>
-        <div class="solicit">Solicit your presence at the<br>auspicious occasion of their little son</div>
-        
-        <div class="child-name">Yuvaan</div>
-        <div class="ceremony-title">ANNAPRASHAN CEREMONY</div>
+                <div style="position: relative; margin-top: 3vw;">
+                    <!-- <div class="caption">
+                        คลิกที่รูป เพื่อเขียนคำขอขมาหรือคำอวยพร แด่ผู้บริหารและผู้อาวุโส 9 ท่าน
+                    </div> -->
+                    <div class="flags"></div>
+                    <div class="quote__items">
+                        <div class="quote__item">
+                            <figure class="gallery__item">
+                                <div class="gallery__item-img">
+                                    <div class="gallery__item-imginner avatar__sen-1"
+                                        onclick="window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=n98RjhVGT0OmxooMtP_rbOnqjq44y0RLn2SLG8J-jN9UQ0tFTEFGS0RWVDJKSVJHNjdOVktDVVNPQy4u', '_blank').focus();">
+                                        <div class="greeting splasher">
+                                            <div class="greeting-button">เขียนคำอวยพร</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gallery__item-quote"></div>
+                            </figure>
+                            <div class="quote__item-text">
+                                <div class="quote__item-text-name">คุณนิพัฒน์ แก้วมาตย์</div>
+                                การได้ร่วมงานกับ <span>Incident Team</span> เป็นสิ่งที่ภาคภูมิใจมากที่สุด
+                                ในความเป็น <span>One Team</span>
+                                ของเราที่แข็งแกร่ง และพวกเราร่วมกันสร้างความเป็น <span>Number One</span>
+                                อยู่เสมอมา
+                                ไม่เพียงเท่านี้
+                                ในยามวิกฤต เราก็จะมีทั้งผู้บริหาร หัวหน้างาน คอยฉายแสงนำทาง และเพื่อนร่วมงาน
+                                ที่ร่วมทุกข์และสุขด้วยกันอยู่เสมอ
+                            </div>
+                        </div>
 
-        <div class="date-container">
-            <div class="date-sub">7 BAISAKH</div>
-            <div class="date-main">2083</div>
-            <div class="date-sub">2026</div>
-        </div>
-        <div style="text-align:center; color: var(--text-red); font-weight:bold;">MONDAY</div>
+                        <div class="quote__item">
+                            <figure class="gallery__item">
+                                <div class="gallery__item-img">
+                                    <div class="gallery__item-imginner avatar__sen-2"
+                                        onclick="window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=n98RjhVGT0OmxooMtP_rbOnqjq44y0RLn2SLG8J-jN9UQ0tFTEFGS0RWVDJKSVJHNjdOVktDVVNPQy4u', '_blank').focus();">
+                                        <div class="greeting splasher">
+                                            <div class="greeting-button">เขียนคำอวยพร</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gallery__item-quote"></div>
+                            </figure>
+                            <div class="quote__item-text">
+                                <div class="quote__item-text-name">คุณชาตรี นทีพงศ์พริยะ</div>
+                                ทุกช่วงเวลาที่นี่ล้วนแสดงออกถึงความเป็น <span>One Team</span>
+                                แต่ถ้าเป็นเหตุการณ์ที่ติดตรึงใจมากที่สุดน่าจะเป็นเหตุการณ์ไฟฟ้าดับที่ตึก
+                                <span>IT DATA CENTER</span>
+                                อาคารราษฎร์บูรณะ เมื่อปี <span>2015</span> ตอนนั้นเราทุกคนต้องร่วมมือร่วมใจกัน
+                                <span>Recover</span>
+                                ให้สถานการณ์กลับมาเป็นปกติได้อย่างอย่างรวดเร็วที่สุด บางคนโดนโทรปลุกกลางดึก
+                                เราต้องรีบเข้ามา
+                                <span>Office</span> เพื่อร่วมมือกัน บางคนต้องขึ้นไปชั้น 3 เพื่อ
+                                <span>Restart server</span>
+                                บางคนต้องอยู่ชั้น 2
+                                เพื่อ
+                                <span>Restart system</span> ต่างๆ ให้ขึ้นมา เหตุการณ์นี้เป็นเหตุการณ์ที่ผมและเพื่อนๆ
+                                น้องๆ
+                                จดจำได้ตลอดไม่ลืม ว่าผ่านพ้นมาได้ด้วยความเป็น <span>One Team</span> ของพวกเราจริงๆ
+                            </div>
+                        </div>
 
-        <div class="info">
-            <div class="time">4 PM onwards</div>
-            <div style="font-size: 14px; font-weight: bold;">Followed by Dinner</div>
-            
-            <div class="location">
-                At<br>
-                Our Residence,<br>
-                Jorpati, Kathmandu<br>
-                Nepal
+                        <div class="quote__item">
+                            <figure class="gallery__item">
+                                <div class="gallery__item-img">
+                                    <div class="gallery__item-imginner avatar__sen-3"
+                                        onclick="window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=n98RjhVGT0OmxooMtP_rbOnqjq44y0RLn2SLG8J-jN9UQ0tFTEFGS0RWVDJKSVJHNjdOVktDVVNPQy4u', '_blank').focus();">
+                                        <div class="greeting splasher">
+                                            <div class="greeting-button">เขียนคำอวยพร</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gallery__item-quote"></div>
+                            </figure>
+                            <div class="quote__item-text">
+                                <div class="quote__item-text-name">คุณนงลักษณ์ พิทักษ์พาณิชกุล</div>
+                                การทำงานที่นี่ เราไม่ได้มีแค่เรื่องงานเพียงอย่างเดียว แต่ที่นี่ยังมีเพื่อน พี่ น้อง
+                                และมีกิจกรรมดีๆให้พวกเราได้มีโอกาสตอบแทนสังคมของเราได้อีกด้วย
+                                พี่ประทับใจกับกิจกรรมหลากหลายอย่างที่ทำให้พี่ได้มีส่วนร่วมในการช่วยเหลือสังคม
+                                ในแต่ละครั้งที่เราร่วมกิจกรรมกัน เรามี <span>One Goal</span> ที่เป็นหนึ่งเดียว
+                                ที่อยากร่วมแรงร่วมใจทำเพื่อสังคมจริงๆ ไม่ว่าจะเป็น การเย็บเต้านมเทียมสำหรับผู้ป่วยมะเร็ง
+                                การจัดทำดอกไม้จันทน์ถวายพ่อหลวง การร่วมกิจกรรมทำดีกับเอ็มดีปู ที่บ้านราชาวดีหญิง
+                                เป็นประสบการณ์ที่ดี และทุกกิจกรรมนั้น เรารวมตัวเป็น <span>One Team</span>
+                                ได้อย่างดีเยี่ยม
+                                ทุกคนรักใคร่
+                                กลมเกลียวกัน และล้วนมีความสุขทุกครั้งที่ได้มีส่วนหนึ่งในกิจกรรมดีๆ เพื่อสังคม
+                                และเพื่อองค์กรของเราค่ะ
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gun left"></div>
+
+                    <div class="quote__items">
+                        <div class="quote__item">
+                            <figure class="gallery__item">
+                                <div class="gallery__item-img">
+                                    <div class="gallery__item-imginner avatar__sen-4"
+                                        onclick="window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=n98RjhVGT0OmxooMtP_rbOnqjq44y0RLn2SLG8J-jN9UQ0tFTEFGS0RWVDJKSVJHNjdOVktDVVNPQy4u', '_blank').focus();">
+                                        <div class="greeting splasher">
+                                            <div class="greeting-button">เขียนคำอวยพร</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gallery__item-quote"></div>
+                            </figure>
+                            <div class="quote__item-text">
+                                <div class="quote__item-text-name">คุณสุชาติ ทับทิมศรี</div>
+                                ความเป็น <span>ONE KBTG</span> ของพวกเราชัดเจนมาก และผมเชื่อว่าทุกๆคนใน
+                                <span>KBTG</span> ก็เป็นเช่นนั้น ทั้ง <span>One Step Ahead,</span>
+                                <span>One Goal,</span><span>One Team</span> และ <span>Number One</span>
+                                ทุกอย่างนี้มันเป็นพื้นฐานให้พวกเราทำ
+                                และต่อยอดถึงผลสำเร็จได้อีกมากมาย สิ่งที่ชัดเจนสำหรับผมคือผมได้ร่วมงานกับทีมงาน
+                                <span>ATM</span>
+                                ผมได้รับการดูแลจากหัวหน้างานและทีมงานเป็นอย่างดี ทุกคนสามัคคี
+                                และทุ่มเทการทำงานอย่างสุดความสามารถ จนในปี <span>2019</span> สิ่งที่พวกเราทำนั้น
+                                ได้ประสบความสำเร็จขึ้นไปอีกขั้น
+                                โดยพวกเราได้ขึ้นรับรางวัลประจำปีกันอย่างต่อเนื่องในหลายๆรางวัล
+                                ผลการทำงานของทีมเราได้พิสูจน์ความเป็น <span>One KBTG</span> เราสามารถทำให้ <span>Service
+                                    AVA</span>
+                                ดีขึ้นและปัญหาต่าง
+                                ๆ ลดลงอย่างต่อเนื่อง ก่อให้เกิดความพึงพอใจแก่ลูกค้าของธนาคารที่เข้ามาใช้บริการ
+                            </div>
+                        </div>
+
+                        <div class="quote__item">
+                            <figure class="gallery__item">
+                                <div class="gallery__item-img">
+                                    <div class="gallery__item-imginner avatar__sen-5"
+                                        onclick="window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=n98RjhVGT0OmxooMtP_rbOnqjq44y0RLn2SLG8J-jN9UQ0tFTEFGS0RWVDJKSVJHNjdOVktDVVNPQy4u', '_blank').focus();">
+                                        <div class="greeting splasher">
+                                            <div class="greeting-button">เขียนคำอวยพร</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gallery__item-quote"></div>
+                            </figure>
+                            <div class="quote__item-text">
+                                <div class="quote__item-text-name">คุณวิโรจน์ รุ่งเพชรรัตน์</div>
+                                ที่นี่มอบโอกาสในการทำงานที่หลากหลายให้กับทุกคน ครั้งหนึ่งผมได้รับหน้าที่เป็น
+                                <span>Project
+                                    Owner</span> ในการทำกิจกรรม <span>KBTG eSport ROV</span>
+                                ซึ่งเป็นสิ่งที่ท้าทายสำหรับตัวผมมากในการจัดกิจกรรมให้พนักงานมารวมตัวกันทำงาน วางแผน
+                                คิดวิเคราะห์ เพื่อแสดงถึงความเป็น <span>One KBTG</span> และ <span>Project</span> นี้เอง
+                                ทำให้ผมได้มีโอกาสสร้างสิ่งดีๆ รอยยิ้ม และความประทับใจให้กับพนักงานทุกคนที่ร่วมกิจกรรม
+                                ทุกคนได้ร่วมกันสร้างความเป็น <span>One Goal,</span> <span>One Team</span> และ
+                                <span>Number one</span> กันอย่างเต็มที่
+                                และสนุกสนานผ่านกิจกรรมที่ผมจัดนี้ นับเป็นความทรงจำ และความประทับใจที่ผมไม่มีวันลืมครับ
+                            </div>
+                        </div>
+
+                        <div class="quote__item">
+                            <figure class="gallery__item">
+                                <div class="gallery__item-img">
+                                    <div class="gallery__item-imginner avatar__sen-6"
+                                        onclick="window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=n98RjhVGT0OmxooMtP_rbOnqjq44y0RLn2SLG8J-jN9UQ0tFTEFGS0RWVDJKSVJHNjdOVktDVVNPQy4u', '_blank').focus();">
+                                        <div class="greeting splasher">
+                                            <div class="greeting-button">เขียนคำอวยพร</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gallery__item-quote"></div>
+                            </figure>
+                            <div class="quote__item-text">
+                                <div class="quote__item-text-name">คุณวีระศักดิ์ ฐิติเบญจพล</div>
+                                ผู้บริหารทุกคนที่นี่เอาใจใส่พนักงานทุกคนเป็นอย่างดี
+                                นโยบายหลายๆอย่างที่ผู้บริหารทำให้พนักงาน พวกเรารับรู้ และสัมผัสได้ในความผลักดันให้เกิด
+                                <span>One KBTG</span> สำหรับพวกเรา และผมมั่นใจว่า
+                                พวกเราทุกคนจะไม่ทำให้ผู้บริหารผิดหวังในตัวพนักงานอย่างพวกเราแน่นอนครับ
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gun right"></div>
+
+                    <div class="quote__items">
+                        <div class="quote__item">
+                            <figure class="gallery__item">
+                                <div class="gallery__item-img">
+                                    <div class="gallery__item-imginner avatar__sen-7"
+                                        onclick="window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=n98RjhVGT0OmxooMtP_rbOnqjq44y0RLn2SLG8J-jN9UQ0tFTEFGS0RWVDJKSVJHNjdOVktDVVNPQy4u', '_blank').focus();">
+                                        <div class="greeting splasher">
+                                            <div class="greeting-button">เขียนคำอวยพร</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gallery__item-quote"></div>
+                            </figure>
+                            <div class="quote__item-text">
+                                <div class="quote__item-text-name">คุณธนฤกษ์ เกาะศิริ</div>
+                                <span style="margin-left: 0;">One KBTG</span> ทำให้ผมรู้สึกว่า
+                                พวกเราเป็นครอบครัวเดียวกันจริงๆครับ
+                                ที่นี่เป็นครอบครัวที่อบอุ่น เป็นองค์กรที่มั่นคง พนักงานสามารถฝากอนาคตไว้กับ
+                                <span>KBTG</span>
+                                ที่เป็นครอบครัวใหญ่ร่วมกันกับ "ครอบครัวกสิกรไทย" ตัวผมสังกัด <span>KServe</span>
+                                ภรรยาของผมสังกัด
+                                <span>KSoft</span> ทั้งผมและภรรยา
+                                เรารักและประทับใจในความดูแลเอาใจใส่ครอบครัวของผมเป็นอย่างดีตลอดมาครับ
+                            </div>
+                        </div>
+
+                        <div class="quote__item">
+                            <figure class="gallery__item">
+                                <div class="gallery__item-img">
+                                    <div class="gallery__item-imginner avatar__sen-8"
+                                        onclick="window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=n98RjhVGT0OmxooMtP_rbOnqjq44y0RLn2SLG8J-jN9UQ0tFTEFGS0RWVDJKSVJHNjdOVktDVVNPQy4u', '_blank').focus();">
+                                        <div class="greeting splasher">
+                                            <div class="greeting-button">เขียนคำอวยพร</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gallery__item-quote"></div>
+                            </figure>
+                            <div class="quote__item-text">
+                                <div class="quote__item-text-name">คุณเอนก คนซื่อ</div>
+                                ที่ <span>KBTG</span> นโยบาย <span>Number One</span> ทางด้าน <span>IT</span> และ
+                                นวัตกรรมชัดเจนมากครับ ผมในฐานะพนักงานคนหนึ่ง
+                                ผมดีใจที่เป็นส่วนหนึ่งในการนำเครื่องมือ และนวัตกรรมใหม่ๆมาใช้ในการทำงาน
+                                และผมรู้สึกได้อย่างชัดเจนว่า เรา <span>One Step Ahead</span> อยู่เสมอ
+                                ไม่ว่าในสถานการณ์ไหน
+                                หรือวิกฤตการณ์ใด ผมตัดสินใจไม่ผิดที่มาร่วมงานกับ <span>KBTG</span> ครับ
+                            </div>
+                        </div>
+
+                        <div class="quote__item">
+                            <figure class="gallery__item">
+                                <div class="gallery__item-img">
+                                    <div class="gallery__item-imginner avatar__sen-9"
+                                        onclick="window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=n98RjhVGT0OmxooMtP_rbOnqjq44y0RLn2SLG8J-jN9UQ0tFTEFGS0RWVDJKSVJHNjdOVktDVVNPQy4u', '_blank').focus();">
+                                        <div class="greeting splasher">
+                                            <div class="greeting-button">เขียนคำอวยพร</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gallery__item-quote"></div>
+                            </figure>
+                            <div class="quote__item-text">
+                                <div class="quote__item-text-name">คุณพีระพงศ์ พูลผล</div>
+                                การร่วมงานกับ <span>KBTG</span> ทำให้ผมได้มีโอกาสทำอะไรหลายๆอย่าง
+                                ที่ไม่ใช่แค่เรื่องงานอย่างเดียว
+                                ผมมีโอกาสได้รู้จักเพื่อนใหม่ๆ มีโอกาสได้ทำอะไรใหม่ๆ ทั้งเรื่องงาน
+                                และกิจกรรมที่องค์กรมอบให้พนักงาน ที่นี่เป็นที่เรียนรู้ที่ดีสำหรับคำว่า <span>One
+                                    Team</span>
+                                เราเป็นทีมที่แข็งแกร่งมากครับ ทั้งพี่ๆ เพื่อนๆ น้องๆ ทุกคน
+                                ล้วนสนุกไปด้วยกันกับสิ่งที่เราทำ ด้วยความรัก และความสามัคคีครับ
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <!-- Decorative Temple (Watermark) -->
-        <img src="https://i.imgur.com/K53M82p.png" class="temple-bg">
-
-        <!-- Son's Picture -->
-        <div class="yuvaan-img">
-            <!-- Ensure yuvaan_pp.jpg is in the same folder -->
-            <img src="yuvaan_pp.jpg" alt="Yuvaan">
-        </div>
-
-        <!-- Rice Bowl Illustration -->
-        <div class="rice-bowl">
-            <img src="https://i.imgur.com/6X2f7pU.png" style="width:100%;" alt="Traditional Bowl">
-        </div>
-
-        <div class="footer-rsvp">
-            RSVP: +977-9860332358
-        </div>
-    </div>
-
+        <div class="footer"></div>
+    </main>
 </body>
+
 </html>

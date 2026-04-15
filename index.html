@@ -3,245 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuvaan's Royal Pasni Invitation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Yuvaan's Artistic Pasni Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Marcellus&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --deep-teal: #004d4d;
-            --royal-gold: #c5a059;
-            --bright-gold: #f9d976;
-            --accent-orange: #e67e22;
-            --off-white: #fffcf2;
+            --primary-red: #d32f2f;
+            --marigold: #ff9800;
+            --royal-blue: #1a237e;
+            --emerald: #00695c;
+            --gold-gradient: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --bg-gradient: radial-gradient(circle, #fff9e6, #ffecb3);
         }
 
         body {
-            background-color: #1a1a1a;
+            background-color: #222;
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
         }
 
-        /* The Main Card */
-        .card {
-            background-color: var(--off-white);
+        /* The Main Artistic Canvas */
+        .invitation-container {
             width: 100%;
-            max-width: 480px;
+            max-width: 500px;
+            background: var(--bg-gradient);
             position: relative;
-            border: 12px double var(--royal-gold);
-            border-radius: 5px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            border: 10px solid transparent;
+            border-image: var(--gold-gradient) 1;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            text-align: center;
             overflow: hidden;
-            background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
         }
 
-        /* Artistic Mandala Background Decals */
-        .card::before {
+        /* Background Mandalas */
+        .mandala-bg {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: url('https://www.transparenttextures.com/patterns/mandala.png');
+            opacity: 0.15;
+            z-index: 0;
+        }
+        .m-top-left { top: -50px; left: -50px; transform: rotate(45deg); }
+        .m-bottom-right { bottom: -50px; right: -50px; }
+
+        /* Traditional Hanging Toran */
+        .toran {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            background-image: radial-gradient(circle, #ff9800 10px, #ff5722 11px, transparent 12px);
+            background-size: 30px 30px;
+            z-index: 5;
+        }
+        .toran::before {
+            content: "🌿 🌸 🌿 🌸 🌿 🌸 🌿 🌸 🌿 🌸 🌿 🌸";
+            display: block;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
+        /* HEAVY ARTISTIC PHOTO FRAME */
+        .photo-section {
+            position: relative;
+            z-index: 2;
+            margin-top: 80px;
+        }
+
+        .heavy-frame {
+            width: 220px;
+            height: 220px;
+            margin: 0 auto;
+            background: var(--gold-gradient);
+            padding: 12px;
+            border-radius: 50%;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Ornamental Petals around Frame */
+        .heavy-frame::before {
             content: "";
             position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 250px;
-            height: 250px;
-            background: repeating-conic-gradient(from 0deg, var(--royal-gold) 0deg 10deg, transparent 10deg 20deg);
-            opacity: 0.1;
+            width: 260px;
+            height: 260px;
+            border: 4px dotted var(--marigold);
             border-radius: 50%;
+            animation: spin 15s linear infinite;
         }
 
-        /* Heavy Ornamental Header */
-        .header-deco {
-            background: var(--deep-teal);
-            color: var(--bright-gold);
-            padding: 25px 10px;
-            text-align: center;
-            border-bottom: 5px solid var(--royal-gold);
-        }
-
-        .header-deco h2 {
-            font-family: 'Cinzel', serif;
-            margin: 0;
-            font-size: 24px;
-            letter-spacing: 5px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        /* THE HEAVY ARTISTIC FRAME */
-        .frame-wrapper {
-            position: relative;
-            width: 240px;
-            height: 240px;
-            margin: 40px auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* The Sunburst / Petal Layer */
-        .outer-frame {
-            position: absolute;
+        .photo-inner {
             width: 100%;
             height: 100%;
-            background: var(--royal-gold);
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-            animation: rotate 20s linear infinite;
-            opacity: 0.8;
-        }
-
-        .inner-frame {
-            position: absolute;
-            width: 85%;
-            height: 85%;
-            background: linear-gradient(45deg, var(--royal-gold), var(--bright-gold));
             border-radius: 50%;
-            border: 4px solid var(--deep-teal);
-            z-index: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
-        }
-
-        .photo-box {
-            width: 92%;
-            height: 92%;
-            border-radius: 50%;
+            background: white;
             overflow: hidden;
-            border: 2px solid white;
+            border: 4px solid var(--emerald);
         }
 
-        .photo-box img {
+        .photo-inner img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        /* Typography */
+        /* Typography Styles */
         .content {
-            text-align: center;
-            padding: 0 30px 40px;
+            position: relative;
+            z-index: 2;
+            padding: 20px;
         }
 
-        .invitation-for {
-            font-size: 14px;
-            color: var(--deep-teal);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0;
+        .header-text {
+            font-family: 'Marcellus', serif;
+            color: var(--primary-red);
+            font-size: 30px;
+            letter-spacing: 4px;
+            margin: 10px 0;
+            text-shadow: 1px 1px 0px #fff;
+        }
+
+        .invite-quote {
+            font-size: 13px;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 5px;
         }
 
         .baby-name {
             font-family: 'Great Vibes', cursive;
-            font-size: 65px;
-            color: var(--accent-orange);
-            margin: 0px 0 20px;
-            filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.1));
+            font-size: 68px;
+            background: linear-gradient(to bottom, #1a237e, #00695c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 5px 0;
         }
 
-        .event-info {
-            border: 1px solid var(--royal-gold);
+        /* Event Details Box */
+        .details-container {
+            background: rgba(255, 255, 255, 0.7);
+            border: 2px solid var(--marigold);
+            border-radius: 15px;
+            margin: 20px auto;
             padding: 15px;
-            position: relative;
-            margin-bottom: 25px;
+            width: 85%;
+            backdrop-filter: blur(5px);
         }
 
-        .event-info::after {
-            content: "⬥";
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--off-white);
-            padding: 0 10px;
-            color: var(--royal-gold);
-        }
-
-        .date-time {
-            font-size: 18px;
+        .date-box {
+            font-size: 20px;
+            color: var(--primary-red);
             font-weight: 600;
-            color: #333;
         }
 
         .location {
-            color: var(--deep-teal);
-            font-weight: 700;
+            color: var(--emerald);
+            font-weight: 600;
+            display: block;
             margin-top: 10px;
+        }
+
+        .parents-info {
+            margin-top: 20px;
+            color: #444;
+        }
+
+        .parents-info strong {
+            color: var(--royal-blue);
+            font-size: 18px;
             display: block;
         }
 
-        .parents {
-            font-size: 15px;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        .parents strong {
-            color: #000;
-            display: block;
-            font-size: 17px;
-        }
-
-        .rsvp-footer {
-            background: var(--deep-teal);
+        /* Footer Decoration */
+        .footer-deco {
+            background: var(--emerald);
             color: white;
             padding: 15px;
-            font-size: 14px;
-            letter-spacing: 1px;
+            margin-top: 20px;
+            position: relative;
         }
 
-        .rsvp-footer strong {
-            color: var(--bright-gold);
+        .footer-deco::before {
+            content: "🥣 🥄 🥣";
+            display: block;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .rsvp {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--marigold);
+        }
+
+        /* Floating elements */
+        .floating-element {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.6;
+            filter: blur(1px);
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div class="header-deco">
-            <h2>SHUBH PASNI</h2>
-        </div>
+    <div class="invitation-container">
+        <!-- Background Elements -->
+        <div class="mandala-bg m-top-left"></div>
+        <div class="mandala-bg m-bottom-right"></div>
+        <div class="toran"></div>
         
-        <div class="content">
-            <p class="invitation-for">The First Rice Ceremony of</p>
-            
-            <!-- HEAVY ARTISTIC PHOTO FRAME -->
-            <div class="frame-wrapper">
-                <div class="outer-frame"></div>
-                <div class="inner-frame">
-                    <div class="photo-box">
-                        <!-- Ensure yuvaan_pp.jpg is in the same folder -->
-                        <img src="yuvaan_pp.jpg" alt="Yuvaan">
-                    </div>
+        <!-- Floating Artistic Icons -->
+        <div class="floating-element" style="top: 100px; left: 20px; font-size: 30px;">🌼</div>
+        <div class="floating-element" style="top: 400px; right: 20px; font-size: 30px;">🌾</div>
+
+        <div class="photo-section">
+            <div class="heavy-frame">
+                <div class="photo-inner">
+                    <!-- YOUR SON'S PICTURE HERE -->
+                    <img src="yuvaan_pp.jpg" alt="Yuvaan Chaudhary">
                 </div>
             </div>
+        </div>
 
+        <div class="content">
+            <div class="header-text">SHUBH PASNI</div>
+            <p class="invite-quote">A handful of rice, a world of blessings.</p>
+            
+            <p style="margin-bottom: 0; color: #777;">Celebrating the Rice Feeding Ceremony of</p>
             <div class="baby-name">Yuvaan</div>
 
-            <div class="event-info">
-                <div class="date-time">
-                    7 Baisakh 2083 <br>
-                    <span style="font-size: 14px; color: #777;">(20 April 2026)</span><br>
-                    4:00 PM Onwards
-                </div>
-                <span class="location">Jorpati, Kathmandu</span>
+            <div class="details-container">
+                <div class="date-box">7 Baisakh 2083</div>
+                <div style="font-size: 14px; color: #444; font-weight: 600;">(Monday, 20 April 2026)</div>
+                <div style="margin-top: 10px; font-size: 16px;">🕔 4:00 PM Onwards</div>
+                <span class="location">📍 Jorpati, Kathmandu</span>
             </div>
 
-            <div class="parents">
-                Invited by:
+            <div class="parents-info">
+                Invited By:
                 <strong>Kunal Chaudhary & Suruchi Dev</strong>
             </div>
         </div>
 
-        <div class="rsvp-footer">
-            RSVP: <strong>+977-9860332358</strong>
+        <div class="footer-deco">
+            <div class="rsvp">RSVP: +977-9860332358</div>
+            <div style="font-size: 11px; margin-top: 5px; opacity: 0.8;">Join us for a joyful evening and dinner</div>
         </div>
     </div>
 
